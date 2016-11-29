@@ -39,52 +39,60 @@ public class Morra {
         //Gli faccio scegliere fra carta sasso forbice
         String input1 = g.Scelta();
 
-        System.out.println(input1);
+        //System.out.println(input1);
 
         //Giocando contro il computer dobbiamo far scegliere al computer fra c , s , f
         //Creo un'array e gli assegno i miei valori
-        String SceltaComputer[] = new String[3];
-        SceltaComputer[0] = "sasso";
-        SceltaComputer[1] = "carta";
-        SceltaComputer[2] = "forbice";
+        String[] ScelteComputer = new String[3];
+        
+        Computer c = new Computer();
+        
+        ScelteComputer[0] = c.getSasso();
+        ScelteComputer[1] = c.getCarta();
+        ScelteComputer[2] = c.getForbice();
 
         Random rand = new Random();
-        int risposta = rand.nextInt(SceltaComputer.length);
-        System.out.println(risposta);
-        String risposta2 = SceltaComputer[risposta];
-        System.out.println(risposta2);
+        int risposta = rand.nextInt(ScelteComputer.length);
+        //System.out.println(risposta);
+        String risposta2 = ScelteComputer[risposta];
+        //System.out.println(risposta2);
+
+        System.out.println(output(input1, risposta2));
+
+    }
+
+    public static String output(String input1, String risposta2) {
+        String output = "";
 
         if (input1.equalsIgnoreCase("sasso") && risposta2.equalsIgnoreCase("carta")) {
             output = "La scelta del giocatore era: " + input1 + " La scelta del computer è stata: " + risposta2 + "\n"
                     + "Il compure vince!";
-        } else if (input1.equalsIgnoreCase ("sasso") && risposta2.equalsIgnoreCase ("forbice")) {
+        } else if (input1.equalsIgnoreCase("sasso") && risposta2.equalsIgnoreCase("forbice")) {
             output = "La scelta del giocatore era: " + input1 + " La scelta del computer è stata: " + risposta2 + "\n"
                     + "Il giocatore vince!";
-        } else if (input1.equalsIgnoreCase ("sasso") && risposta2.equalsIgnoreCase ("sasso")) {
+        } else if (input1.equalsIgnoreCase("sasso") && risposta2.equalsIgnoreCase("sasso")) {
             output = "La scelta del giocatore era: " + input1 + " La scelta del computer è stata: " + risposta2 + "\n"
                     + "Pareggio!!!";
-        } else if (input1.equalsIgnoreCase ("carta") && risposta2.equalsIgnoreCase ("carta")) {
+        } else if (input1.equalsIgnoreCase("carta") && risposta2.equalsIgnoreCase("carta")) {
             output = "La scelta del giocatore era: " + input1 + " La scelta del computer è stata: " + risposta2 + "\n"
                     + "Pareggio!!!";
-        } else if (input1.equalsIgnoreCase ("carta") && risposta2.equalsIgnoreCase ("forbice")) {
+        } else if (input1.equalsIgnoreCase("carta") && risposta2.equalsIgnoreCase("forbice")) {
             output = "La scelta del giocatore era: " + input1 + " La scelta del computer è stata: " + risposta2 + "\n"
                     + "Il computer vince!";
-        } else if (input1.equalsIgnoreCase ("carta") && risposta2.equalsIgnoreCase ("sasso")) {
+        } else if (input1.equalsIgnoreCase("carta") && risposta2.equalsIgnoreCase("sasso")) {
             output = "La scelta del giocatore era: " + input1 + " La scelta del computer è stata: " + risposta2 + "\n"
                     + "Il giocatore vince!";
-        } else if (input1.equalsIgnoreCase ("forbice") && risposta2.equalsIgnoreCase ("carta")) {
+        } else if (input1.equalsIgnoreCase("forbice") && risposta2.equalsIgnoreCase("carta")) {
             output = "La scelta del giocatore era: " + input1 + " La scelta del computer è stata: " + risposta2 + "\n"
                     + "Il giocatore vince!";
-        } else if (input1.equalsIgnoreCase ("forbice") && risposta2.equalsIgnoreCase ("forbice")) {
+        } else if (input1.equalsIgnoreCase("forbice") && risposta2.equalsIgnoreCase("forbice")) {
             output = "La scelta del giocatore era: " + input1 + " La scelta del computer è stata: " + risposta2 + "\n"
                     + "Pareggio!!!";
-        } else if (input1.equalsIgnoreCase ("forbice") && risposta2.equalsIgnoreCase ("sasso")) {
+        } else if (input1.equalsIgnoreCase("forbice") && risposta2.equalsIgnoreCase("sasso")) {
             output = "La scelta del giocatore era: " + input1 + " La scelta del computer è stata: " + risposta2 + "\n"
                     + "Il computer vince!";
         }
 
-        System.out.println(output);
-
+        return output;
     }
-
 }
